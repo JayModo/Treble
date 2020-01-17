@@ -1,11 +1,11 @@
 <template>
   <div class="hello">
+    <AddInstrument v-on:createInstru="addInstru" />
     <div v-for="instrument in instruments" class="product">
-
       <h1>{{ instrument.instruBrand }}</h1>
-      <div v-if="instrument.instruPrice > 597.00" class="display">
+      <div v-if="instrument.instruPrice > 598.00" class="display">
         <h3>Price : {{instrument.instruPrice}}</h3>
-        <button @click="buy">Buy</button>
+        <button @click="buy(instrument)">Buy</button>
         <button @click="returnInst"> Return</button>
         <img :src="instrument.instruImg" alt="">
       </div>
@@ -19,10 +19,12 @@
 </template>
 
 <script>
+  import AddInstrument from "@/components/AddInstrument"
   export default {
     name: 'HelloWorld',
     data() {
       return {
+        newInstrument: {},
         instruments: [{
           instruBrand: 'gibson',
           instruPrice: 599.99,
@@ -35,8 +37,12 @@
       }
     },
     methods: {
-      buy() {
-        this.instruPrice--
+      addInstru(instrument) {
+        this.instruments.push(instrument)
+      },
+
+      buy(instrument) {
+        instrument.instruPrice--
       },
       returnInst() {
         this.instruPrice++
@@ -44,7 +50,10 @@
     },
     props: {
       msg: String
-    }
+    },
+    components: {
+      AddInstrument
+    },
   }
 </script>
 
