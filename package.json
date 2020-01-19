@@ -15,5 +15,17 @@
   "devDependencies": {
     "@vue/cli-service": "^4.1.0",
     "vue-template-compiler": "^2.6.10"
-  }
+  },
+  "description": "## Project setup ``` npm install ```",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JayModo/Treble.git"
+  },
+  "author": "Jeremy O",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JayModo/Treble/issues"
+  },
+  "homepage": "https://github.com/JayModo/Treble#readme"
 }

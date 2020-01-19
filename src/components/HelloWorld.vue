@@ -25,24 +25,19 @@
     data() {
       return {
         newInstrument: {},
-        instruments: {}
-      }
-    },
-    computed: {
-      instruments() {
-        return this.$store.state.items
+
       }
     },
     methods: {
       addInstru(instrument) {
-        this.$store.dispatch('addInstru', instrument)
+        this.instruments.push(instrument)
       },
 
       buy(instrumentId) {
-        instrument.instruPrice--
+        this.$store.dispatch('buy', instrumentId)
       },
-      returnInst() {
-        this.instruPrice++
+      returnInst(instrumentId) {
+        this.$store.dispatch('returnInst', instrumentId)
       }
     },
     props: {
