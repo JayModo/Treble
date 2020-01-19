@@ -25,23 +25,20 @@
     data() {
       return {
         newInstrument: {},
-        instruments: [{
-          instruBrand: 'gibson',
-          instruPrice: 599.99,
-          instruImg: 'https://static.gibson.com/product-images/Custom/CUSFXC951/Cherry%20Teaburst/front-300_600.png'
-        }, {
-          instruBrand: 'gibson',
-          instruPrice: 599.99,
-          instruImg: 'https://static.gibson.com/product-images/Custom/CUSFXC951/Cherry%20Teaburst/front-300_600.png'
-        }]
+        instruments: {}
+      }
+    },
+    computed: {
+      instruments() {
+        return this.$store.state.items
       }
     },
     methods: {
       addInstru(instrument) {
-        this.instruments.push(instrument)
+        this.$store.dispatch('addInstru', instrument)
       },
 
-      buy(instrument) {
+      buy(instrumentId) {
         instrument.instruPrice--
       },
       returnInst() {
