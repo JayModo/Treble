@@ -25,12 +25,19 @@
     data() {
       return {
         newInstrument: {},
-
+        computed: {
+          instruments() {
+            return this.$store.state.instruments
+          }
+        },
       }
+    },
+    mounted() {
+      this.$store.dispatch('getInstruments')
     },
     methods: {
       addInstru(instrument) {
-        this.instruments.push(instrument)
+        this.$store.dispatch('addInstrument', instrument)
       },
 
       buy(instrumentId) {
